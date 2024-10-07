@@ -46,11 +46,6 @@ namespace CapaDesconectada
                 ContactTitle = txtbContacttitle.Text,
                 Address = txtbAdress    .Text,
             };
-            MessageBox.Show(cliente.CustomerID);
-            MessageBox.Show(cliente.CompanyName);
-            MessageBox.Show(cliente.ContactName);
-            MessageBox.Show(cliente.ContactTitle);
-            MessageBox.Show(cliente.Address);
             return cliente;
         }
 
@@ -103,34 +98,56 @@ namespace CapaDesconectada
             {
                 var datoOriginal = customerRepository.ExtraerInformacionCliente(fila);
                 var datosModificados = CrearCliente();
-                var filas = adaptador.Update(
-                    datosModificados.CustomerID,
-                    datosModificados.CompanyName,
-                    datosModificados.ContactName,
-                    datosModificados.ContactTitle,
-                    datosModificados.Address,
-                    datosModificados.City,
-                    datosModificados.Region,
-                    datosModificados.PostalCode,
-                    datosModificados.Country,
-                    datosModificados.Phone,
-                    datosModificados.Fax,
-                    datoOriginal.CustomerID,
-                    datoOriginal.CompanyName,
-                    datoOriginal.ContactName,
-                    datoOriginal.ContactTitle,
-                    datoOriginal.Address,
-                    datoOriginal.City,
-                    datoOriginal.Region,
-                    datoOriginal.PostalCode,
-                    datoOriginal.Country,
-                    datoOriginal.Phone,
-                    datoOriginal.Fax
-                    );
-
+                /* var filas = adaptador.Update(
+                     datosModificados.CustomerID,
+                     datosModificados.CompanyName,
+                     datosModificados.ContactName, 
+                     datosModificados.ContactTitle, 
+                     datosModificados.Address,
+                     datosModificados.City,
+                     datosModificados.Region, 
+                     datosModificados.PostalCode,  
+                     datosModificados.Country, 
+                     datosModificados.Phone, 
+                     datosModificados.Fax, 
+                     datoOriginal.CustomerID, 
+                     datoOriginal.CompanyName,
+                     datoOriginal.ContactName,
+                     datoOriginal.ContactTitle,
+                     datoOriginal.Address,
+                     datoOriginal.City, 
+                     datoOriginal.Region,
+                     datoOriginal.PostalCode, 
+                     datoOriginal.Country,
+                     datoOriginal.Phone,
+                     datoOriginal.Fax
+                     );
+                */
+                /* var filas = adaptador.ActualizarCliente(datosModificados.CustomerID,
+                      datosModificados.CompanyName,
+                      datosModificados.ContactName,
+                      datosModificados.ContactTitle,
+                      datosModificados.Address,
+                      datosModificados.City,
+                      datosModificados.Region,
+                      datosModificados.PostalCode,
+                      datosModificados.Country,
+                      datosModificados.Phone,
+                      datosModificados.Fax, datoOriginal.CustomerID);
+                */
+                var filas = adaptador.Prueba01(datosModificados.CustomerID,
+                      datosModificados.CompanyName,
+                      datosModificados.ContactName,
+                      datosModificados.ContactTitle,
+                      datosModificados.Address,
+                      datosModificados.City,
+                      datosModificados.Region,
+                      datosModificados.PostalCode,
+                      datosModificados.Country,
+                      datosModificados.Phone,
+                      datosModificados.Fax);
                 MessageBox.Show($"{filas} filas modificadas");
             }
-
         }
         private void RellenarForm(Customer cliente) 
         {
@@ -149,6 +166,12 @@ namespace CapaDesconectada
             }
         }
         #endregion
+
+
+
+
+
+
 
         public Form1()
         {
